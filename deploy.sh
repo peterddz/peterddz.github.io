@@ -4,7 +4,7 @@ set -e
 
 # mini is the name of used theme
 cd ..
-hugo -t mini
+hugo -D -t mini
 
 cd public
 git add .
