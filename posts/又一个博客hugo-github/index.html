@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>又一个博客：Hugo &#43; GitHub | Hugo</title>
+    <title>又一个博客：Hugo &#43; GitHub | Peter</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="">
+<meta name="description" content="这是我的第 5 个博客了。记得 “记录” 这件事，比记录本身还难。。 下面是博客搭建过程： 生成本地 Hugo 站点 🔗这个 Hugo 自己网站有很详细的教程，不难： Quick Start | Hugo">
 <meta name="generator" content="Hugo 0.88.1" />
 
 
@@ -69,13 +69,13 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          0 words
+          783 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          0 minute read
+          2 minute read
         </span>
     </div>
 
@@ -89,7 +89,65 @@ if (!doNotTrack) {
 
 
     <div class="content">
-      
+      <p>这是我的第 5 个博客了。记得 “记录” 这件事，比记录本身还难。。</p>
+<p>下面是博客搭建过程：</p>
+<h1 id="生成本地-hugo-站点">生成本地 Hugo 站点 <a href="#%e7%94%9f%e6%88%90%e6%9c%ac%e5%9c%b0-hugo-%e7%ab%99%e7%82%b9" class="anchor">🔗</a></h1><p>这个 Hugo 自己网站有很详细的教程，不难：</p>
+<ul>
+<li><a href="https://gohugo.io/getting-started/quick-start/" target="_blank" rel="noopener">Quick Start | Hugo</a></li>
+</ul>
+<p>注意 <code>hugo new</code> 默认生成的只是草稿。最后 <code>hugo server</code> 测试下，本地网站能出来就 OK。</p>
+<p>模板我用的是 nodejh/hugo-theme-mini，简单干净：</p>
+<ul>
+<li><a href="https://github.com/nodejh/hugo-theme-mini/blob/master/README-zh_CN.md" target="_blank" rel="noopener">Hugo Theme Mini</a></li>
+</ul>
+<p>要注意的只是 mini 的 exampleSite 用的是 config.yaml。把这个文件拷到博客根目录后 config.toml 可以删掉了。</p>
+<p>还有 config.yaml 的这行要改：
+<code>theme: mini</code></p>
+<p>这行要删：
+<code>#themesDir: ../../</code></p>
+<h1 id="启动-github-pages-和-githubio">启动 GitHub Pages 和 GitHub.io <a href="#%e5%90%af%e5%8a%a8-github-pages-%e5%92%8c-githubio" class="anchor">🔗</a></h1><p>官方教程：</p>
+<ul>
+<li><a href="https://docs.github.com/en/pages/quickstart" target="_blank" rel="noopener">Quickstart for GitHub Pages - GitHub Docs</a></li>
+</ul>
+<p>做到第二步就好。</p>
+<p>记得 repo 命名时用的是 “&lt;你的 GitHub 用户名&gt;.github.io”，不能省掉 “.github.io”。</p>
+<h1 id="上传本地-hugo-站点到-github">上传本地 Hugo 站点到 GitHub <a href="#%e4%b8%8a%e4%bc%a0%e6%9c%ac%e5%9c%b0-hugo-%e7%ab%99%e7%82%b9%e5%88%b0-github" class="anchor">🔗</a></h1><p>这里有两种办法，第一种是官方网站推荐的，用 GitHub Action 做。我试过，可以，但我觉得这种办法不好。Github Pages 需要的只是 Hugo 生成的 public 目录里面的东西，但这种办法需要把你整个 Hugo 目录上传，还包括你的草稿。不整洁，且节省不了多少效率，毕竟这就是个静态博客而已。需要用这种办法的可以参考：</p>
+<ul>
+<li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/" target="_blank" rel="noopener">Host on GitHub | Hugo</a></li>
+<li><a href="https://github.com/peaceiris/actions-hugo" target="_blank" rel="noopener">peaceiris/actions-hugo: GitHub Actions for Hugo ⚡️ Setup Hugo quickly and build your site fast. Hugo extended, Hugo Modules, Linux (Ubuntu), macOS, and Windows are supported.</a></li>
+</ul>
+<p>另一种办法使用 bash 只上传本地 build 好的 public 目录。我用的是这种。</p>
+<p>先在根目录建立一个 public 目录，在 public 里 <code>git init</code> 一次，然后在这个目录里：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git remote add origin https://github.com/&lt;GitHub 用户名&gt;/&lt;GitHub 用户名&gt;.github.io.git
+git branch -M main
+</code></pre></div><p>换句话说，只把 public 里的东西，同步到 peterddz.github.io 这个 repo 。</p>
+<p>然后用一个简单的 script，放根目录运行就好。我参考（抄）的好像是下面这个。有些 script 整的很复杂，没必要：</p>
+<ul>
+<li><a href="https://github.com/cambridge-mlg/mlg-website/blob/master/deploy.sh" target="_blank" rel="noopener">mlg-website/deploy.sh</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080">#!/bin/sh
+</span><span style="color:#080"></span>
+<span style="color:#080;font-style:italic"># build （mini 是模板的名字）</span>
+hugo -t mini
+
+<span style="color:#080;font-style:italic"># upload</span>
+<span style="color:#a2f">cd</span> public
+git add .
+<span style="color:#b8860b">msg</span><span style="color:#666">=</span><span style="color:#b44">&#34;rebuilding site </span><span style="color:#a2f;font-weight:bold">$(</span>date<span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44">&#34;</span>
+<span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> -n <span style="color:#b44">&#34;</span><span style="color:#b8860b">$*</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>; <span style="color:#a2f;font-weight:bold">then</span>
+<span style="color:#b8860b">msg</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b8860b">$*</span><span style="color:#b44">&#34;</span>
+<span style="color:#a2f;font-weight:bold">fi</span>
+git commit -m <span style="color:#b44">&#34;</span><span style="color:#b8860b">$msg</span><span style="color:#b44">&#34;</span>
+
+git push origin main
+</code></pre></div><p>要注意的是 Github 命令行不能用用户名加密码获得许可了，push 会出错，需要用新申请的 token：</p>
+<ul>
+<li><a href="https://github.com/settings/tokens" target="_blank" rel="noopener">Personal Access Tokens</a></li>
+<li><a href="https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to" target="_blank" rel="noopener">git - Support for password authentication was removed. Please use a personal access token instead - Stack Overflow</a></li>
+</ul>
+<p>完事！还是挺简单的。细节以后慢慢改吧。</p>
+<p>以后要有时间再把之前博客的内容搬过来。</p>
+
     </div>
 
     
@@ -130,7 +188,7 @@ if (!doNotTrack) {
         <div id="social">
 
 
-    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+    <a class="symbol" href="https://peterddz.github.io" rel="me" target="_blank">
         
         <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     
@@ -209,10 +267,6 @@ if (!doNotTrack) {
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-cactus-plus'>nodejh</a>
-      </div>
     
 </footer>
 

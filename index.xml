@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo</title>
+    <title>Peter</title>
     <link>https://peterddz.github.io/</link>
-    <description>Recent content on Hugo</description>
+    <description>Recent content on Peter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 24 Nov 2021 17:08:07 +0800</lastBuildDate><atom:link href="https://peterddz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>又一个博客：Hugo &#43; GitHub.io</title>
-      <link>https://peterddz.github.io/posts/%E5%8F%88%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2hugo-github.io/</link>
+      <title>又一个博客：Hugo &#43; GitHub</title>
+      <link>https://peterddz.github.io/posts/%E5%8F%88%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2hugo-github/</link>
       <pubDate>Wed, 24 Nov 2021 17:08:07 +0800</pubDate>
       
-      <guid>https://peterddz.github.io/posts/%E5%8F%88%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2hugo-github.io/</guid>
-      <description>这是我的第 5 个博客了。记得 “记录” 这件事，比记录本身还难。。下面只是搭建过程： 生成本地 Hugo 站点 🔗这个 Hugo 自己网站有很详细的教程，不难。 Quick Start | Hugo 我</description>
+      <guid>https://peterddz.github.io/posts/%E5%8F%88%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2hugo-github/</guid>
+      <description>这是我的第 5 个博客了。记得 “记录” 这件事，比记录本身还难。。 下面是博客搭建过程： 生成本地 Hugo 站点 🔗这个 Hugo 自己网站有很详细的教程，不难： Quick Start | Hugo</description>
     </item>
     
   </channel>
